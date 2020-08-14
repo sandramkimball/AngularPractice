@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpService } from '../http.service';
 
 @Component({
   selector: 'app-cheese',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CheeseComponent implements OnInit {
 
-  constructor() { }
+  wines: Object;
 
-  ngOnInit(): void {
+  // dependecy injection to use throughout all logic
+  constructor(private _http: HttpService) { }
+
+  ngOnInit(){
+    console.log('fetching wine...')
+    this._http.getWines().subscribe( data => {
+      this.wines = data;
+      console.log('res', data);
+    });
+    console.log('wine time?', this.wines);
   }
 
 }

@@ -1,1 +1,11 @@
-<p>cheese works!</p>
+<h1>Cheese and Wine Pairings</h1>
+
+<ul *ngIf="wines">
+    <li *ngFor=" let wine of wines">
+        <p class='name'>{{wine.wine}}</p>
+        <p class=''>{{wine.vintage}}</p>
+        <p class=''>{{wine.country}}</p>
+        <p class=''>{{wine.color}}</p>
+        <p class=''>{{wine.score}}</p>
+    </li>
+</ul>
