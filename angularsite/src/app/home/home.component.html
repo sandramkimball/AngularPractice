@@ -1,1 +1,28 @@
-<p>home works!</p>
+<h1>Welcome</h1>>
+
+<div class="welcome-container">
+    <h2>Cheese Order</h2>
+    <div class='quantity-box'>
+        <p>Quantity: <span>{{ clickCounter}}</span> </p> 
+        <button (click)="addClick()">+</button>
+        <button (click)="subtractClick()">-</button>
+        <button >Add To Cart</button>
+    </div>
+</div>
+
+<div class="welcome-container">
+    <p>
+        <input type="text" [(ngModel)]="searchTerm">
+        <br>
+        Search Results: <strong> {{searchTerm}} </strong>
+    </p>
+</div>
+
+<div class="welcome-container" [ngClass]="setClasses()">
+    <ng-template [ngIf]="clickCounter > 10" [ngIfElse]="none">
+        <p> Those are rookie numbers, man!</p>
+    </ng-template>
+    <ng-template #none>
+        <p>You need more cheese in your life.</p>
+    </ng-template>
+</div>
