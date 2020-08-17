@@ -5,7 +5,7 @@
         <p>Quantity: <span>{{ clickCounter}}</span> </p> 
         <button (click)="addClick()">+</button>
         <button (click)="subtractClick()">-</button>
-        <button >Add To Cart</button>
+        <button>Add To Cart</button>
     </div>
 </div>
 
@@ -21,17 +21,18 @@
     </div>
 </div>
 
-<div class="welcome-container search-results" [ngClass]="setClasses()">
-    <!-- <ng-template [ngIf]="searchResults" [ngIfElse]="none"> -->
+<div class="welcome-container cart-container" >
+    <ng-template [ngIf]="cart" [ngIfElse]="none">
         <ul>
-            <li *ngFor=" let obj of searchResults" class='cards'>
+            <li *ngFor=" let item of cart" class='cards'>
                 <img src="../../assets//cheeses.jpg"/>
-                <p>{{obj.name}}</p>
-                <p>Qty {{obj.quantity}}</p>
+                <p>{{ item.name }}</p>
+                <p>Qty {{ item.quantity }}</p>
             </li>
         </ul>
-    <!-- </ng-template> -->
-    <!-- <ng-template #none>
+    </ng-template>
+
+    <ng-template #none>
         <p>Your cart is empty.</p>
-    </ng-template> -->
+    </ng-template>
 </div>

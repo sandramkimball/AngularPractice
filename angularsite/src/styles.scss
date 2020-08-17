@@ -18,6 +18,20 @@ $font2: 'Open Sans Condensed', sans-serif;
     }
 }
 
+@mixin button2 {cursor: pointer;
+    background: #fff;
+    border: 1px solid gray;
+    border-radius: 10%;
+    font-size: 30px;
+    font-weight: 500;
+    height: 40px;
+    width: 40px;
+    margin-left: .5em;
+    &:hover{
+        color: lighten(#000, 30%);
+    }
+}
+
 body{
     margin: 0 auto;
     font-family: $font2;

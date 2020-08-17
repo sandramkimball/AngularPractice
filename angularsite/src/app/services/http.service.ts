@@ -6,8 +6,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class HttpService {
-  cheeseList = ['Emmental', 'Roquefort', 'Délice de Bourgogne', 'Buffalo Mozzarella', 'Marscapone', 'Parmigiano-Reggiano', 'Camembert', 'Pont-l\'Évêque', 'Gruyère', 'Fontina', 'Comtè', 'Taleggio', 'Bleu d\'Auvergne'];
-  
+  cheeseTypes = ['Emmental', 'Roquefort', 'Délice de Bourgogne', 'Buffalo Mozzarella', 'Marscapone', 'Parmigiano-Reggiano', 'Camembert', 'Pont-l\'Évêque', 'Gruyère', 'Fontina', 'Comtè', 'Taleggio', 'Bleu d\'Auvergne'];
+  cheeseList: Array<any> = [];
+
   constructor(private http: HttpClient) { }
 
   getWines(){
@@ -20,6 +21,13 @@ export class HttpService {
   }
 
   getCheese(){
+    this.cheeseTypes.map(cheese=> {
+      var newItem = {
+        name: cheese,
+        quantity: 1,
+      }
+      this.cheeseList.push(newItem)
+    })
     return this.cheeseList;
   }
 

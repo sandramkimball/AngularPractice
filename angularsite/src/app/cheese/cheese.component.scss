@@ -22,7 +22,7 @@ ul{
         position: relative;
         cursor: pointer;
         &:hover{
-            transform: scale(1.02)
+            background: lighten(lightgray, 5%)
         }
         p{
             margin: 0;
@@ -31,15 +31,32 @@ ul{
         }
 
         p.name{
-            font-size: 2rem;
+            font-size: 1.7rem;
             text-align: left;
+            height: 80px;
         }
-        button{ 
+        .quantity-box{
+            display: flex;
+            justify-content: flex-end;
+            .qty-btn{
+                @include button2;
+                border: none;
+                height: 20px;
+                width: 20px;
+                font-size: 1.2rem;
+                padding: 0 0;
+            }
+            .qty-btn:hover{
+                transform: scale(1.02);
+            }
+        }
+        .add-to-cart-btn{ 
             @include button1;
             cursor: pointer;
             position: absolute;
+            width: 50%;
+            left: 25%;
             bottom: 10px;
-            left: 20%;
             padding: 7px 0;
         }
     }

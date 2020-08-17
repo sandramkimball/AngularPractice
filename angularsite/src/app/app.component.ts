@@ -7,10 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'This is Cheese';
-  cart: Array<any> = [];
-
-  addToCart(item){
-    console.log('item added to cart')
-    this.cart.push(item)
-  }
 }

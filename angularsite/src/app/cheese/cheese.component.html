@@ -2,19 +2,16 @@
 
 <ul *ngIf="cheese">
     <li *ngFor=" let ch of cheese">
-        <p class='name'>{{ch}}</p>
+        <p class='name'>{{ch.name}}</p>
         <p>8oz</p>
-        <p>$4.00</p>
-        <button (click)="addToCart(ch)">Add</button>
+        <p>${{ch.quantity * 4}}.00</p>
+        <div class="quantity-box">
+            <p>Qty: <span>{{ ch.quantity }}</span> </p> 
+            <button class="qty-btn" (click)="addQty(ch)">+</button>
+            <button class="qty-btn" (click)="subtractQty(ch)">-</button>
+        </div>
+                
+        <button class="add-to-cart-btn" (click)="onAdd(ch)">Add</button>
     </li>
 </ul>
 
-<!-- <ul *ngIf="wines">
-    <li *ngFor=" let wine of wines">
-        <p class='name'>{{wine.wine}}</p>
-        <p class='name'>{{wine.vintage}}</p>
-        <p class='name'>{{wine.country}}</p>
-        <p class='name'>{{wine.color}}</p>
-        <p class='name'>{{wine.score}}</p>
-    </li>
-</ul> -->
