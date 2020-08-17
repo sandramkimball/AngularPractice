@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-home',
@@ -9,10 +11,19 @@ export class HomeComponent implements OnInit {
 
   clickCounter: number = 0;
   searchTerm: string = '';
+  searchResults: Array<any> = [
+    {
+      name: 'Parmesan Arregiano',
+      quantity: 3,
+    }
+];
 
-  constructor() { }
 
-  ngOnInit(): void {
+  constructor(
+    private router: Router
+  ) { }
+
+  ngOnInit(): void{
   }
 
   addClick(){
@@ -29,6 +40,14 @@ export class HomeComponent implements OnInit {
       crazy: this.clickCounter > 20,
     }
     return myClasses;
+  }
+
+  onSubmit(){
+    var thing: Object = {
+      name: 'Buffalo Mozzarella',
+      quantity: 5,
+    }
+    this.searchResults.push(thing)
   }
 
 }

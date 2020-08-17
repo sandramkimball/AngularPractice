@@ -1,4 +1,3 @@
-<h1>Welcome</h1>>
 
 <div class="welcome-container">
     <h2>Cheese Order</h2>
@@ -10,19 +9,29 @@
     </div>
 </div>
 
-<div class="welcome-container">
-    <p>
-        <input type="text" [(ngModel)]="searchTerm">
-        <br>
-        Search Results: <strong> {{searchTerm}} </strong>
-    </p>
+<div class="welcome-container search-box">
+    <div>
+        <form (ngSubmit)="onSubmit()">
+            <input type="text" [(ngModel)]="searchTerm" (ngSubmit)="onSubmit()">
+        </form>
+        <button type="submit" (ngSubmit)="onSubmit()" class='search-btn'>Enter</button>
+    </div>
+    <div>
+        <p>Search Results for: <strong>{{searchTerm}}</strong> </p>
+    </div>
 </div>
 
-<div class="welcome-container" [ngClass]="setClasses()">
-    <ng-template [ngIf]="clickCounter > 10" [ngIfElse]="none">
-        <p> Those are rookie numbers, man!</p>
-    </ng-template>
-    <ng-template #none>
-        <p>You need more cheese in your life.</p>
-    </ng-template>
+<div class="welcome-container search-results" [ngClass]="setClasses()">
+    <!-- <ng-template [ngIf]="searchResults" [ngIfElse]="none"> -->
+        <ul>
+            <li *ngFor=" let obj of searchResults" class='cards'>
+                <img src="../../assets//cheeses.jpg"/>
+                <p>{{obj.name}}</p>
+                <p>Qty {{obj.quantity}}</p>
+            </li>
+        </ul>
+    <!-- </ng-template> -->
+    <!-- <ng-template #none>
+        <p>Your cart is empty.</p>
+    </ng-template> -->
 </div>

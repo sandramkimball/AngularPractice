@@ -6,6 +6,17 @@ $thirdly: #6f0fc9;
 
 $font1: 'Dancing Script', cursive;
 $font2: 'Open Sans Condensed', sans-serif;
+@mixin button1 {
+    width: 100px;
+    font-size: 16px;
+    border-radius: 10% 5%;
+    border: none;
+    color: #fff;
+    background-color: $secondary;
+    &:hover{
+        background-color: lighten($secondary, 5%)
+    }
+}
 
 body{
     margin: 0 auto;

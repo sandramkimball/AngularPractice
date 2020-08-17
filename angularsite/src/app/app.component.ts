@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'angularsite';
+  title = 'This is Cheese';
+  cart: Array<any> = [];
+
+  addToCart(item){
+    console.log('item added to cart')
+    this.cart.push(item)
+  }
 }
