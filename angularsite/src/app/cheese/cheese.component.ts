@@ -24,20 +24,22 @@ export class CheeseComponent implements OnInit {
 
   onAdd(item){
     this._cartService.addToCart(item);
-    console.log('updated cart', this.cart)
   }
 
   addQty(item){
     this.cheese.forEach(obj => {
       if(obj.name === item.name){
         obj.quantity += 1;
-        console.log(obj.name, obj.quantity)
       } 
     })
   }
 
   subtractQty(item){
-    this.cheese[item].quantity -= 1;
+    this.cheese.forEach(obj => {
+      if(obj.name === item.name){
+        obj.quantity -= 1;
+      } 
+    })
   }
 
 }

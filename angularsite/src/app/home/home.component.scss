@@ -1,58 +1,36 @@
 @import '../../styles.scss';
 
-.welcome-container{
-    margin: 10px auto;
+
+.home-banner{
+    height: 35vw;
+    padding-top: 2.5vw;
+    font-family: $font1;
+    background-image: url('../../assets/landscape-luca-micheli.jpg');
+    background-size: cover;
+    background-position: bottom;
+    div{
+        width: 30vw;
+        height: 30vw;
+        border: 4px solid white;
+        border-radius: 5%;
+        margin: auto;
+        padding: 10px;
+    }
+    h1{
+        font-size: 3rem;
+        color: #fff;
+        text-align: center;
+        margin: auto;
+        margin-top: 40%;
+        font-weight: 100;
+    }
+}
+.cart-container{
+    margin: 5vw auto;
     width: 80%;
     border: 1px solid $secondary;
     border-radius: 10px;
     padding: 1em;
-
-}
-.quantity-box{
-    display: flex;
-    align-items: center;
-    margin: 0 auto;
-    font-size: 30px;
-    width: 40vw;
-}
-
-input{
-    padding: 5px;
-    height: 30px;
-    margin-bottom: 10px;
-}
-
-span{
-    background-color: papayawhip;
-    padding: 0 10px;
-}
-
-button{
-    cursor: pointer;
-    background: #fff;
-    border: 1px solid gray;
-    border-radius: 10%;
-    font-size: 30px;
-    font-weight: 500;
-    height: 40px;
-    width: 40px;
-    margin-left: .5em;
-    &:hover{
-        color: lighten(#000, 30%);
-    }
-}
-button:nth-child(4), .search-btn{
-    @include button1
-}
-
-.search-box{
-    div{
-        display: flex;
-        align-items: baseline;
-    }
-}
-
-.cart-container{
     ul{
         list-style-type: none;
         padding: 0;

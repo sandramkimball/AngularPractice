@@ -1,16 +1,12 @@
 
-<div class="welcome-container">
-    <h2>Cheese Order</h2>
-    <div class='quantity-box'>
-        <p>Quantity: <span>{{ clickCounter}}</span> </p> 
-        <button (click)="addClick()">+</button>
-        <button (click)="subtractClick()">-</button>
-        <button>Add To Cart</button>
+<div class="home-banner">
+    <div>
+        <h1>Artisan Cheese Made from Centuries of Tradition</h1>
     </div>
 </div>
 
 
-<div class="welcome-container cart-container" >
+<div class="cart-container" >
     <ng-template [ngIf]="cart.length != 0" [ngIfElse]="none">
         <ul>
             <li *ngFor=" let item of cart" class='cards'>
@@ -28,7 +24,7 @@
 </div>
 
 
-<div class="welcome-container search-box">
+<!-- <div class="welcome-container search-box">
     <div>
         <form (ngSubmit)="onSubmit()">
             <input type="text" [(ngModel)]="searchTerm" (ngSubmit)="onSubmit()">
@@ -38,4 +34,4 @@
     <div>
         <p>Search Results for: <strong>{{searchTerm}}</strong> </p>
     </div>
-</div>
+</div> -->
