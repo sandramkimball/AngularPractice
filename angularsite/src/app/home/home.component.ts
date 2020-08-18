@@ -11,7 +11,7 @@ import { CartService } from '../services/cart.service';
 export class HomeComponent implements OnInit {
   clickCounter: number = 0;
   searchTerm: string = '';
-  @Input() cart = [];
+  @Input() cart = this._cartService.cart;
   searchResults: Array<any> = [];
 
 
@@ -21,7 +21,6 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit(){
-    this.cart = this._cartService.cart;
   }
 
   addClick(){
@@ -38,6 +37,10 @@ export class HomeComponent implements OnInit {
       quantity: 5,
     }
     this.searchResults.push(thing)
+  }
+
+  onDelete(item){
+    this._cartService.deleteFromCart(item)
   }
 
 }

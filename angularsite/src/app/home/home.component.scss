@@ -13,7 +13,7 @@
     align-items: center;
     margin: 0 auto;
     font-size: 30px;
-    width: 30vw;
+    width: 40vw;
 }
 
 input{
@@ -62,7 +62,11 @@ button:nth-child(4), .search-btn{
     li{
         margin: 0 7px 7px 0;
         width: 120px;
-        height: 140px;
+        height: 160px;
+        position: relative;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
     }
     img{
         height: 100px;
@@ -71,5 +75,20 @@ button:nth-child(4), .search-btn{
     }
     p{
         margin: 0;
+    }
+    .delete-btn{
+        position: absolute;
+        color: #fff;
+        background: #000000b6;
+        height: 25px;
+        width: 25px;
+        font-weight: 600;
+        text-align: center;
+        bottom: 0;
+        right: 0;
+        cursor: pointer;
+        &:hover{
+            background: red;
+        }
     }
 }

@@ -28,7 +28,12 @@ export class CheeseComponent implements OnInit {
   }
 
   addQty(item){
-    this.cheese[item].quantity += 1;
+    this.cheese.forEach(obj => {
+      if(obj.name === item.name){
+        obj.quantity += 1;
+        console.log(obj.name, obj.quantity)
+      } 
+    })
   }
 
   subtractQty(item){
