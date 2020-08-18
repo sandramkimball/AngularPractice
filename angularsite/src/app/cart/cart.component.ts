@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'app-cart',
@@ -6,10 +7,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent implements OnInit {
+  @Input() cart = this._cartService.cart;
+  cartTotal: number = 0;
 
-  constructor() { }
+  constructor( private _cartService: CartService ) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.cart.map(obj=> {
+      this.cartTotal += (obj.quantity * 4)
+    })
+  }
+  
+
+  onDelete(item){
+    this._cartService.deleteFromCart(item)
+  }
+
+  onCheckout(){
+    console.log('Checkout')
   }
 
 }

@@ -7,7 +7,7 @@ $thirdly: #6f0fc9;
 $font1: 'Dancing Script', cursive;
 $font2: 'Open Sans Condensed', sans-serif;
 @mixin button1 {
-    width: 100px;
+    width: 200px;
     font-size: 16px;
     border-radius: 10% 5%;
     border: none;
@@ -63,11 +63,26 @@ header{
             list-style: none;
             margin: 0;
             display: flex;
+            position: relative;
             li a {
                 padding: 1em;
                 &:hover{
                     background: darken($primary, 10%);
                 }
+            }
+            
+            .cart-count{
+                margin: 0 0;
+                position: absolute;
+                margin-left: 2px;
+                border-radius: 50%;
+                height: 25px;
+                width: 25px;
+                text-align: center;
+                background-color: lightgray;
+                right: -15px;
+                bottom: 0;
+                color: #000;
             }
         };
     }

@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class CartService {
   cart = [];
+  numOfItems = 0;
 
   constructor() { }
 
@@ -15,6 +16,7 @@ export class CartService {
         quantity: item.quantity,
     }
     this.cart.push(newItem)
+    this.numOfItems = this.cart.length;
   }
 
   deleteFromCart(item){

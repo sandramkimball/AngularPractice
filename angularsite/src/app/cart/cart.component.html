@@ -1,1 +1,24 @@
-<p>cart works!</p>
+<h1>Shopping Cart</h1>>
+
+<div class="cart-container" >
+    <ng-template [ngIf]="cart.length != 0" [ngIfElse]="none">
+        <ul>
+            <li *ngFor=" let item of cart" class='cards'>
+                <img src="../../assets//cheeses.jpg"/>
+                <div>
+                    <p>{{ item.name }}</p>
+                    <p>Qty {{ item.quantity }}</p>
+                    <button class='delete-btn' (click)="onDelete(item)">Delete</button>
+                </div>
+            </li>
+        </ul>
+        <div class='total'>
+            <h2>Subtotal: ${{cartTotal}}</h2>
+            <p (click)="onCheckout">Checkout</p>
+        </div>
+    </ng-template>
+
+    <ng-template #none>
+        <p>Your cart is empty.</p>
+    </ng-template>
+</div>

@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "thisischeese-6500e": {
+      "hosting": {
+        "angularsite": [
+          "thisischeese-6500e"
+        ]
+      }
+    }
+  }
+}
