@@ -11,9 +11,10 @@
 
 <ul *ngIf="cheese">
     <li *ngFor=" let ch of cheese">
+        <img src='../../assets/product-1.jpg'/>
         <p class='name'>{{ch.name}}</p>
-        <p>8oz</p>
-        <p>${{ch.quantity * 4}}.00</p>
+        <p>{{ch.origin}} </p> 
+        <p>8oz - ${{ch.price}}.00ea</p>
         <div class="quantity-box">
             <p>Qty: <span>{{ ch.quantity }}</span> </p> 
             <button class="qty-btn" (click)="addQty(ch)">+</button>
@@ -23,4 +24,5 @@
         <button class="add-to-cart-btn" (click)="onAdd(ch)">Add</button>
     </li>
 </ul>
+
 

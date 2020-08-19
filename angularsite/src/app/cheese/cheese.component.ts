@@ -18,7 +18,10 @@ export class CheeseComponent implements OnInit {
   ) { }
 
   ngOnInit(){
-    this.cheese = this._http.getCheese();
+    if(this.cheese.length === 0){
+      this.cheese = this._http.getCheese()
+    };
+    
     this.cart = this._cartService.cart;
   }
 

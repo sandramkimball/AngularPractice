@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CartService } from './services/cart.service';
 
 @Component({
@@ -8,8 +8,14 @@ import { CartService } from './services/cart.service';
 })
 export class AppComponent {
   title = 'This is Cheese';
-  cartLength = this._cartService.numOfItems;  
+  cartLength = 0;  
 
   constructor( private _cartService: CartService ){}
+
+
+  ngOnInit(){
+    console.log( 'cart length', this._cartService.numOfItems);
+    this.cartLength = this._cartService.numOfItems;
+  }
 
 }

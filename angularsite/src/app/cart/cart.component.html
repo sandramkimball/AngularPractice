@@ -4,7 +4,7 @@
     <ng-template [ngIf]="cart.length != 0" [ngIfElse]="none">
         <ul>
             <li *ngFor=" let item of cart" class='cards'>
-                <img src="../../assets//cheeses.jpg"/>
+                <img src="../../assets/product-2.jpg"/>
                 <div>
                     <p>{{ item.name }}</p>
                     <p>Qty {{ item.quantity }}</p>
@@ -13,7 +13,7 @@
             </li>
         </ul>
         <div class='total'>
-            <h2>Subtotal: ${{cartTotal}}</h2>
+            <h2>Subtotal: ${{cartTotal}}.00</h2>
             <p (click)="onCheckout">Checkout</p>
         </div>
     </ng-template>

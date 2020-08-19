@@ -41,13 +41,13 @@ ul{
     padding: 0;
     display: flex;
     flex-wrap: wrap;
-    width: 70%;
+    width: 80%;
     li{
         background: lightgray;
         padding: 1em;
         margin-right: 10px;
-        width: 15%;
-        height: 200px;
+        width: 16%;
+        height: 250px;
         margin-bottom: 1em;
         display: flex;
         flex-direction: column;
@@ -56,20 +56,25 @@ ul{
         &:hover{
             background: lighten(lightgray, 5%)
         }
+        img{
+            object-fit: cover;
+            height: 40%;
+            width: 100%;
+            margin: 0 auto;
+        }
         p{
             margin: 0;
             font-size: 1.2rem;
-            text-align: right;
+            // text-align: right;
         }
 
-        p.name{
+        .name{
             font-size: 1.7rem;
-            text-align: left;
-            height: 80px;
+            text-align: center;
         }
         .quantity-box{
             display: flex;
-            justify-content: flex-end;
+            // justify-content: flex-end;
             .qty-btn{
                 @include button2;
                 border: none;
@@ -93,3 +98,12 @@ ul{
         }
     }
 }
+
+// .added-popup{
+//     font-size: 2rem;
+// }
+// .active{
+//     display: fixed;
+//     top: 100px;
+//     right: 2em;
+// }

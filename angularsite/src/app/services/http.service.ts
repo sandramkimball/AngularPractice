@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 
 @Injectable({
@@ -7,24 +7,18 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class HttpService {
   cheeseTypes = ['Emmental', 'Roquefort', 'Délice de Bourgogne', 'Buffalo Mozzarella', 'Marscapone', 'Parmigiano-Reggiano', 'Camembert', 'Pont-l\'Évêque', 'Gruyère', 'Fontina', 'Comtè', 'Taleggio', 'Bleu d\'Auvergne'];
+  origins = ['Italy', 'Spain', 'France', 'Turkey', 'Israel', 'Iran']
   cheeseList: Array<any> = [];
 
   constructor(private http: HttpClient) { }
-
-  getWines(){
-    return this.http.get('https://api.globalwinescore.com/globalwinescores/latest/', {
-      headers: new HttpHeaders({
-        'Authorization': "Token b2434b7beaf543b088c0f0228bd01bf34780edfe",
-        'Access-Control-Allow-Origin': '*'
-      })
-    });
-  }
 
   getCheese(){
     this.cheeseTypes.map(cheese=> {
       var newItem = {
         name: cheese,
         quantity: 1,
+        origin: this.origins[Math.floor(Math.random() * Math.floor(6))],
+        price: Math.floor(Math.random() * Math.floor(17)),
       }
       this.cheeseList.push(newItem)
     })

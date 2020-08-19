@@ -70,20 +70,6 @@ header{
                     background: darken($primary, 10%);
                 }
             }
-            
-            .cart-count{
-                margin: 0 0;
-                position: absolute;
-                margin-left: 2px;
-                border-radius: 50%;
-                height: 25px;
-                width: 25px;
-                text-align: center;
-                background-color: lightgray;
-                right: -15px;
-                bottom: 0;
-                color: #000;
-            }
         };
     }
 }
