@@ -1,8 +1,20 @@
 <header>
   <div class="container">
     <a href="#" class='logo'>This is Cheese</a>
-    <nav>
+    <nav class='full-menu'>
       <ul>
+        <li><a href="#" routerLink="/">Home</a></li>
+        <li><a href="#" routerLink="/about">The Story</a></li>
+        <li><a href="#" routerLink="/cheese">Shop</a></li>
+        <li class="cart-tag"><a href="#" routerLink="/cart">
+          Cart <span>{{cartLength}}</span>
+        </a></li>
+      </ul>
+    </nav>
+    <div class='menu-icon' (click)="onOpenMenu()"></div>
+    <nav class='side-menu' [ngStyle]="{ display: getDisplay() }">
+      <ul>
+        <li class='close-btn' (click)="onCloseMenu()">X</li>
         <li><a href="#" routerLink="/">Home</a></li>
         <li><a href="#" routerLink="/about">The Story</a></li>
         <li><a href="#" routerLink="/cheese">Shop</a></li>

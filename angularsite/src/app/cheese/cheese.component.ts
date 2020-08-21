@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output} from '@angular/core';
 import { HttpService } from '../services/http.service';
 import { CartService } from '../services/cart.service';
 
@@ -9,6 +9,7 @@ import { CartService } from '../services/cart.service';
 })
 export class CheeseComponent implements OnInit {
   @Input() cart = [];
+  @Output() cartLength = new EventEmitter()
   cheese = [];
 
   // dependecy injection to use throughout all logic
@@ -23,6 +24,7 @@ export class CheeseComponent implements OnInit {
     };
     
     this.cart = this._cartService.cart;
+    this.cartLength.emit(this.cart.length)
   }
 
   onAdd(item){

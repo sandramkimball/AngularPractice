@@ -3,25 +3,25 @@
 
 .home-banner{
     height: 35vw;
-    padding-top: 2.5vw;
+    padding: 2em 0;
     font-family: $font1;
     background-image: url('../../assets/landscape-luca-micheli.jpg');
     background-size: cover;
     background-position: bottom;
     div{
-        width: 30vw;
-        height: 30vw;
+        width: 40%;
+        height: 90%;
         border: 4px solid white;
         border-radius: 5%;
         margin: auto;
+        display: flex;
         padding: 10px;
     }
     h1{
-        font-size: 3rem;
+        font-size: 2.5rem;
         color: #fff;
         text-align: center;
         margin: auto;
-        margin-top: 40%;
         font-weight: 100;
     }
 }
@@ -68,5 +68,17 @@
         &:hover{
             background: red;
         }
+    }
+}
+
+@media (max-width: 1285px){
+    .home-banner h1{
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 1039px){
+    .home-banner h1{
+        font-size: 1.75rem;
     }
 }
