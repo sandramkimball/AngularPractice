@@ -78,16 +78,34 @@ h1{
 @media (max-width: 1053px){
     .cart-container{
         li{
-            height: 150px !important;
+            height: 25vw !important;
             p{
                 margin: 0;
             }
         }
         img{
-            width: 250px;
+            width: 48% !important;
         }
         .delete-btn{
             margin-top: 10px;
         }
+    }
+}
+
+@media (max-width: 610px){
+    .cart-container{
+        font-size: 1.25rem;
+    }
+    .total {
+        margin: auto;
+        h2{
+            font-size: 1.75rem;
+        }
+    }
+}
+
+@media (max-width: 480px){
+    .delete-btn{
+        height: 30px;
     }
 }
