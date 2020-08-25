@@ -12,7 +12,6 @@ export class AppComponent {
   mobileMenuDisplay: String = 'none !important';
 
   constructor( private _cartService: CartService ){
-    console.log('numOfItems2', this.cartLength)
   }
 
   onOpenMenu(){
@@ -23,7 +22,6 @@ export class AppComponent {
   }
 
   getDisplay(){
-    console.log( this.mobileMenuDisplay )
     return this.mobileMenuDisplay;
   }
 

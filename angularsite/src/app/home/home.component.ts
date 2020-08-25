@@ -10,9 +10,7 @@ import { CartService } from '../services/cart.service';
 })
 export class HomeComponent implements OnInit {
   clickCounter: number = 0;
-  searchTerm: string = '';
   @Input() cart = this._cartService.cart;
-  searchResults: Array<any> = [];
 
 
   constructor(
@@ -23,21 +21,6 @@ export class HomeComponent implements OnInit {
   ngOnInit(){
   }
 
-  addClick(){
-    this.clickCounter += 1;
-  }
-
-  subtractClick(){
-    this.clickCounter -= 1;
-  }
-
-  onSubmit(){
-    var thing: Object = {
-      name: 'Buffalo Mozzarella',
-      quantity: 5,
-    }
-    this.searchResults.push(thing)
-  }
 
   onDelete(item){
     this._cartService.deleteFromCart(item)

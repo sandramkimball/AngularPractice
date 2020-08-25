@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, EventEmitter, Output} from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { HttpService } from '../services/http.service';
 import { CartService } from '../services/cart.service';
 
@@ -9,28 +9,30 @@ import { CartService } from '../services/cart.service';
 })
 export class CheeseComponent implements OnInit {
   @Input() cart = [];
-  @Output() cartLength = new EventEmitter()
-  cheese = [];
+  // this is the control
+  cheese: Array<any> = [];
+  // this is filtered/mapped for display
+  searchResults: Array<any> = [];
+  searchTerm: string = '';
+  selectedOrigin: string = '';
 
-  // dependecy injection to use throughout all logic
   constructor(
     private _http: HttpService, 
     private _cartService: CartService
   ) { }
 
   ngOnInit(){
-    if(this.cheese.length === 0){
-      this.cheese = this._http.getCheese()
-    };
-    
     this.cart = this._cartService.cart;
-    this.cartLength.emit(this.cart.length)
+    this.cheese = this._http.getCheese();
+    this.searchResults = this._http.getCheese();
   }
 
+  // add item to cart
   onAdd(item){
     this._cartService.addToCart(item);
   }
 
+  // add, subtract quantity
   addQty(item){
     this.cheese.forEach(obj => {
       if(obj.name === item.name){
@@ -38,13 +40,31 @@ export class CheeseComponent implements OnInit {
       } 
     })
   }
-
   subtractQty(item){
     this.cheese.forEach(obj => {
       if(obj.name === item.name){
         obj.quantity -= 1;
       } 
     })
+  }
+
+  // search-filter bar
+  onSelect(e){
+    e.preventDefault();
+    this.selectedOrigin = e.target.value;
+  }
+
+  onSearch(){
+    var temp = [];
+    this.cheese.map( obj => {
+      if( 
+          (obj.name.toLowerCase().includes(this.searchTerm) || this.searchTerm == '' ) &&
+          (obj.origin == this.selectedOrigin || this.selectedOrigin == '')
+        ){
+        temp.push(obj)
+      }
+    })
+    this.searchResults = temp;
   }
 
 }

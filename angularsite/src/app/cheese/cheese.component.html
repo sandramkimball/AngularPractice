@@ -9,9 +9,24 @@
     </div>
 </div>
 
-<ul *ngIf="cheese">
-    <li *ngFor=" let ch of cheese">
-        <img src='../../assets/product-1.jpg'/>
+<div class="welcome-container search-box"> 
+    <select [(ngModel)]="selectedOrigin" (change)="onSelect($event)">
+        <option value=''>All Countries</option>
+        <option value="France">France</option>
+        <option value="Greece">Greece</option>
+        <option value="Iran">Iran</option>
+        <option value="Israel">Israel</option>
+        <option value="Italy">Italy</option>
+        <option value="Spain">Spain</option>
+        <option value="Turkey">Turkey</option>
+    </select>
+    <input type="text" [(ngModel)]="searchTerm" (submit)="onSearch()" placeholder="ex: Parmesan">
+    <button type="submit" (click)="onSearch()" class='search-btn'>Search</button>
+</div> 
+
+<ul>
+    <li *ngFor="let ch of searchResults">
+        <img src='../../assets/cheeses.jpg'/>
         <div>
             <p class='name'>{{ch.name}}</p>
             <p>{{ch.origin}} </p> 
@@ -26,5 +41,4 @@
                 
     </li>
 </ul>
-
 
