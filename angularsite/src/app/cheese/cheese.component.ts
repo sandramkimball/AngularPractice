@@ -9,6 +9,7 @@ import { CartService } from '../services/cart.service';
 })
 export class CheeseComponent implements OnInit {
   @Input() cart = [];
+
   // this is the control
   cheese: Array<any> = [];
   // this is filtered/mapped for display
@@ -23,8 +24,10 @@ export class CheeseComponent implements OnInit {
 
   ngOnInit(){
     this.cart = this._cartService.cart;
+    // this._http.getCheese().subscribe(res => this.cheese = res);
     this.cheese = this._http.getCheese();
     this.searchResults = this._http.getCheese();
+    console.log(this.cheese)
   }
 
   // add item to cart

@@ -20,7 +20,7 @@
         <option value="Spain">Spain</option>
         <option value="Turkey">Turkey</option>
     </select>
-    <input type="text" [(ngModel)]="searchTerm" (submit)="onSearch()" placeholder="ex: Parmesan">
+    <input type="text" [(ngModel)]="searchTerm" (ngSubmit)="onSearch()" placeholder="ex: Parmesan">
     <button type="submit" (click)="onSearch()" class='search-btn'>Search</button>
 </div> 
 

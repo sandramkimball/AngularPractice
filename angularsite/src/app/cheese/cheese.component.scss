@@ -196,6 +196,9 @@ ul{
 }
 
 @media (max-width: 550px){
+    div{
+        width: 95%;
+    }
     .cheese-banner{
         height: 100%;
         flex-direction: column-reverse;
@@ -205,6 +208,19 @@ ul{
         }
         img{
            height: 30vh;
+        }
+    }
+}
+
+@media (max-width: 500px){
+    .search-box{
+        flex-direction: column !important;
+        input, select{
+            width: 80%;
+            margin: 0 auto;
+        };
+        button{
+            margin: .5em auto
         }
     }
 }
