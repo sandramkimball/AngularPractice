@@ -14,7 +14,7 @@ export class CartComponent implements OnInit {
 
   ngOnInit() {
     this.cart.map(obj=> {
-      this.cartTotal += (obj.quantity * 4)
+      this.cartTotal += (obj.quantity * obj.price)
     })
   }
   

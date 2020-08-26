@@ -8,19 +8,19 @@ import { CartService } from './services/cart.service';
 })
 export class AppComponent {
   title = 'This is Cheese';
-  cartLength = this._cartService.numOfItems;  
+  cartLength = 0;  
   isActive = false;
 
   constructor( private _cartService: CartService ){
   }
+ 
 
   onOpenMenu(){
     this.isActive = true
-    console.log('open')
+    this.cartLength = this._cartService.cartLength
   }
   onCloseMenu(){
     this.isActive = false
-    console.log('close')
   }
   getClass(){
     return this.isActive == true ? 'active' : '';

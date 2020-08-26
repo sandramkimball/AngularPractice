@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class CartService {
   cart: Array<any> = [];
-  numOfItems = this.cart.length;
+  cartLength = 0
 
   constructor() { }
 
@@ -14,14 +14,16 @@ export class CartService {
     var newItem = {
         name: item.name,
         quantity: item.quantity,
+        price: item.price
     }
     this.cart.push(newItem)
-    this.numOfItems = this.cart.length;
+    this.cartLength = this.cart.length
   }
 
   deleteFromCart(item){
     var indx = this.cart.findIndex(obj => obj.name === item.name)
     this.cart.splice(indx, 1);
+    this.cartLength = this.cart.length
   }
 
 }
