@@ -1,26 +1,7 @@
 
 <div class="home-banner">
-    <div>
-        <h1>Artisan Cheese Made from Centuries of Tradition</h1>
-    </div>
-</div>
-
-
-<div class="cart-container" >
-    <ng-template [ngIf]="cart.length != 0" [ngIfElse]="none">
-        <ul>
-            <li *ngFor=" let item of cart" class='cards'>
-                <img src="../../assets//cheeses.jpg"/>
-                <p>{{ item.name }}</p>
-                <p>Qty {{ item.quantity }}</p>
-                <p class='delete-btn' (click)="onDelete(item)">X</p>
-            </li>
-        </ul>
-    </ng-template>
-
-    <ng-template #none>
-        <p>Your cart is empty.</p>
-    </ng-template>
+    <div class="banner-img"></div>
+    <h1>Artisan Cheese Made from Centuries of Tradition</h1>
 </div>
 
 

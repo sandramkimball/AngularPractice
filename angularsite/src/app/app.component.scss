@@ -1,0 +1,107 @@
+@import '../styles.scss';
+
+
+header{ 
+    background: $primary;
+    padding: 1em 0;
+    a{
+        color: #fff;
+        text-decoration: none;
+    }
+    a.logo{
+        font-size: 20px;
+        margin: 0 0;
+        font-family: $font1;
+    }
+}
+
+// FULL MENU
+header .full-menu{
+    float: right;
+    ul{
+        list-style: none;
+        margin: 0;
+        display: flex;
+        position: relative;
+    }
+    li a {
+        padding: 1em;
+        &:hover{
+            background: darken($primary, 10%);
+        }
+    }
+}
+
+// MOBILE MENU
+header {
+    .menu-icon{
+        display: none;
+        width: 20px;
+        height: 20px;
+        margin-top: .25em;
+        float: right;
+        cursor: pointer;
+        background-size: cover;
+        background-image: url('../assets/icons/hamburger-menu.webp');
+    }
+    .close-btn{
+        cursor: pointer;
+        display: none;
+        float: right;
+        font-weight: 700;
+        width: 20px;
+        height: 20px;
+        font-size: 16px;
+        border: 1.7px solid black;
+        border-radius: 4px;
+        text-align: center;
+        padding-bottom: 2px;
+    }
+    .side-menu{
+        position: absolute;
+        display: none;
+        right: 0;
+        width: 200px;
+        height: 100vh;
+        background: #ccb220e1;
+        z-index: 5;
+        nav{
+            display: flex;
+            flex-direction: column;
+        }
+        ul{
+            list-style-type: none;
+        }
+    }
+    .side-menu.active{
+        opacity: 1;
+        display: inherit !important;
+        transform: translateX(0);
+    }
+}
+
+// Switch from full menu to mobile menu:
+@media (max-width: 575px){
+    header{
+        padding: .5em;
+    }
+    .full-menu{
+        display: none;
+    }
+    .menu-icon, .close-btn{
+        display: inherit !important;
+    }
+    .side-menu{
+        opacity: 0;
+        display: inherit !important;
+        // display: none !important; // This prevents overflow
+        transform: translateX(200px);
+        transition: all .35s ease-in-out;
+    }
+    .side-menu.active{
+        opacity: 1;
+        // display: inherit !important;
+        transform: translateX(0);
+    }
+    
+}
