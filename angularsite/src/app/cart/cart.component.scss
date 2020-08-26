@@ -12,12 +12,15 @@ h1{
     border: 1px solid $secondary;
     border-radius: 10px;
     div{
-        width: 300px;
-        text-align: right;
+        width: 48%;
         font-size: 1.5rem;
+        margin-left: .5em;
     }
     p{
         margin-top: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
     ul{
         list-style: none;
@@ -30,6 +33,14 @@ h1{
             margin-bottom: .5em;
             border-bottom: 1px solid lightgray;
             height: 200px;
+            position: relative;
+        }
+        
+        p{
+            margin-top: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
         img{
             height: 100%;
@@ -38,16 +49,21 @@ h1{
             border-bottom: 1px solid lightgray;
         }
         .delete-btn{
-            @include button2;
             cursor: pointer;
             font-size: 1rem;
-            border-radius: 2px 5px;
-            background: lighten(#000, 10%);
-            color: #fff;
-            border: none;
-            width: 100px;
+            height: 20px;
+            width: 20px;
+            position: absolute;
+            top: -5px;
+            right: -4px;
+            border: 1px solid;
+            text-align: center;
+            padding: 2px 0;
+            border-radius: 3px;
+            background: #fff;
+        
             &:hover{
-                background: #000;
+                background: red;
                 color: #fff;
             }
         }
@@ -95,12 +111,23 @@ h1{
 @media (max-width: 610px){
     .cart-container{
         font-size: 1.25rem;
+        width: 80%;
+        padding: 1em;
+    }
+    h1{
+        margin-left: 1em;
     }
     .total {
-        margin: auto;
+        margin: auto !important;
+        width: 100%;
         h2{
             font-size: 1.75rem;
+            text-align: center;
         }
+        p{
+            max-width: 100%;
+        }
+
     }
 }
 

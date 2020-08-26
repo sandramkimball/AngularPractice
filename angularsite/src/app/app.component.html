@@ -11,15 +11,22 @@
         </a></li>
       </ul>
     </nav>
-    <div class='menu-icon' (click)="onOpenMenu()"></div>
-    <nav class='side-menu' [ngStyle]="{ display: getDisplay() }">
-      <ul>
-        <li class='close-btn' (click)="onCloseMenu()">X</li>
+
+    
+    <ng-template [ngIf]="isActive == false" [ngIfElse]="closeBtn">
+      <div class='menu-icon' (click)="onOpenMenu()"></div>
+    </ng-template>
+    <ng-template #closeBtn>
+      <div class='close-btn' (click)="onCloseMenu()">X</div>
+    </ng-template>
+    
+    <nav class='side-menu' [ngClass]="getClass()">
+      <ul (click)="onCloseMenu()" (scroll)="onCloseMenu()">
         <li><a href="#" routerLink="/">Home</a></li>
         <li><a href="#" routerLink="/about">The Story</a></li>
         <li><a href="#" routerLink="/cheese">Shop</a></li>
         <li class="cart-tag"><a href="#" routerLink="/cart">
-          Cart <span>{{cartLength}}</span>
+          Cart <span>( {{cartLength}} )</span>
         </a></li>
       </ul>
     </nav>

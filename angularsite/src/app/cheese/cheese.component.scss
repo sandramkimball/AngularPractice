@@ -103,16 +103,17 @@ ul{
         p{
             margin: 0;
             font-size: 1.2rem;
-            // text-align: right;
         }
 
         .name{
             font-size: 1.7rem;
-            text-align: center;
+            text-align: center; 
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
         .quantity-box{
             display: flex;
-            // justify-content: flex-end;
             .qty-btn{
                 @include button2;
                 border: none;

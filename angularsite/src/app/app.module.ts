@@ -11,7 +11,6 @@ import { CartComponent } from './cart/cart.component';
 import { AboutComponent } from './about/about.component';
 // import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
-import { CardComponent } from './cheese/card/card.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +19,6 @@ import { CardComponent } from './cheese/card/card.component';
     CheeseComponent,
     CartComponent,
     AboutComponent,
-    CardComponent,
   ],
   imports: [
     BrowserModule,

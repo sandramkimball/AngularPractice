@@ -1,4 +1,4 @@
-<h1>Shopping Cart</h1>>
+<h1>Shopping Cart</h1>
 
 <div class="cart-container" >
     <ng-template [ngIf]="cart.length != 0" [ngIfElse]="none">
@@ -8,7 +8,8 @@
                 <div>
                     <p>{{ item.name }}</p>
                     <p>Qty {{ item.quantity }}</p>
-                    <button class='delete-btn' (click)="onDelete(item)">Delete</button>
+                    <p>${{ item.price }}</p>
+                    <button class='delete-btn' (click)="onDelete(item)">X</button>
                 </div>
             </li>
         </ul>

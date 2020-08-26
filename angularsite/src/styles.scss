@@ -35,6 +35,7 @@ body{
     margin: 0 auto;
     font-family: $font2;
     font-size: 18px;
+    overflow-x: hidden;
 }
 
 .container {
@@ -42,9 +43,41 @@ body{
     margin: 0 auto;
 }
 
+// LARGE MENU
 header{ 
     background: $primary;
     padding: 1em 0;
+    a{
+        color: #fff;
+        text-decoration: none;
+        &hover{
+            background: darken($primary, 10%);
+        }
+    }
+    a.logo{
+        font-size: 20px;
+        margin: 0 0;
+        font-family: $font1;
+    }
+    .full-menu{
+        float: right;
+        ul{
+            list-style: none;
+            margin: 0;
+            display: flex;
+            position: relative;
+        }
+        li a {
+            padding: 1em;
+            &:hover{
+                background: darken($primary, 10%);
+            }
+        }
+    }
+}
+
+// MOBILE MENU
+header{
     .menu-icon{
         display: none;
         width: 20px;
@@ -57,34 +90,24 @@ header{
     }
     .side-menu{
         display: none;
+        position: absolute;
+        right: 0;
+        width: 200px;
+        height: 100vh;
+        background: #ccb220e1;
+        z-index: 5;
+        // This part hides the menu
+        opacity: 0;
+        transform: translateX(200px);
+        transition: all .2s ease-in-out;
     }
-    a{
-        color: #fff;
-        text-decoration: none;
-    }
-    a.logo{
-        font-size: 20px;
-        margin: 0 0;
-        font-family: $font1;
-    }
-
-    .full-menu{
-        float: right;
-        ul{
-            list-style: none;
-            margin: 0;
-            display: flex;
-            position: relative;
-            li a {
-                padding: 1em;
-                &:hover{
-                    background: darken($primary, 10%);
-                }
-            }
-        };
+    .side-menu.active{
+        opacity: 1;
+        transform: translateX(0);
     }
 }
 
+// Switch from full menu to mobile menu:
 @media (max-width: 575px){
     header{
         padding: .5em;
@@ -95,23 +118,20 @@ header{
     .menu-icon{
         display: inherit !important;
     }
+    .close-btn{
+        cursor: pointer;
+        float: right;
+        font-weight: 700;
+        width: 20px;
+        height: 20px;
+        font-size: 16px;
+        border: 1.7px solid black;
+        border-radius: 4px;
+        text-align: center;
+        padding-bottom: 2px;
+    }
     .side-menu{
-        position: absolute;
-        right: 0;
-        width: 45%;
-        height: 100vh;
-        background: #ccb220e1;
-        z-index: 5;
-        .close-btn{
-            cursor: pointer;
-            font-weight: 600;
-            width: 20px;
-            height: 20px;
-            border: 1.25px solid black;
-            border-radius: 4px;
-            text-align: center;
-            padding-bottom: 2px;
-        }
+        display: inherit !important;
         nav{
             display: flex;
             flex-direction: column;
@@ -120,4 +140,9 @@ header{
             list-style-type: none;
         }
     }
+    .side-menu.active{
+        opacity: 1;
+        transform: translateX(0);
+    }
+    
 }

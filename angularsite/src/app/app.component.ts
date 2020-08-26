@@ -9,20 +9,21 @@ import { CartService } from './services/cart.service';
 export class AppComponent {
   title = 'This is Cheese';
   cartLength = this._cartService.numOfItems;  
-  mobileMenuDisplay: String = 'none !important';
+  isActive = false;
 
   constructor( private _cartService: CartService ){
   }
 
   onOpenMenu(){
-    this.mobileMenuDisplay = 'initial !important'
+    this.isActive = true
+    console.log('open')
   }
   onCloseMenu(){
-    this.mobileMenuDisplay = 'none !important'
+    this.isActive = false
+    console.log('close')
   }
-
-  getDisplay(){
-    return this.mobileMenuDisplay;
+  getClass(){
+    return this.isActive == true ? 'active' : '';
   }
 
 }
