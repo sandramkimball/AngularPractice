@@ -94,13 +94,11 @@ header {
     .side-menu{
         opacity: 0;
         display: inherit !important;
-        // display: none !important; // This prevents overflow
         transform: translateX(200px);
         transition: all .35s ease-in-out;
     }
     .side-menu.active{
         opacity: 1;
-        // display: inherit !important;
         transform: translateX(0);
     }
     

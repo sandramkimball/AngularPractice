@@ -1,14 +1,27 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Card } from '../models/Card';
-import { Observable } from 'rxjs';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class HttpService {
-  cheeseTypes = ['Emmental', 'Roquefort', 'Délice de Bourgogne', 'Buffalo Mozzarella', 'Marscapone', 'Parmigiano-Reggiano', 'Camembert', 'Pont-l\'Évêque', 'Gruyère', 'Fontina', 'Comtè', 'Taleggio', 'Bleu d\'Auvergne'];
+  cheeseTypes = [
+    'Emmental', 
+    'Roquefort', 
+    'Délice de Bourgogne', 
+    'Buffalo Mozzarella', 
+    'Marscapone', 
+    'Parmigiano-Reggiano', 
+    'Camembert', 
+    'Pont-l\'Évêque', 
+    'Gruyère', 
+    'Fontina', 
+    'Comtè', 
+    'Taleggio', 
+    'Bleu d\'Auvergne'
+  ];
   origins = ['Italy', 'Spain', 'France', 'Turkey', 'Israel', 'Iran']
   cheeses = [];
   
@@ -21,12 +34,12 @@ export class HttpService {
         name: cheese,
         quantity: 1,
         origin: this.origins[Math.floor(Math.random() * Math.floor(6))],
-        price: Math.floor(Math.random() * Math.floor(17)),
+        price: Math.floor(Math.random() * Math.floor(17)) + 1,
       }
       this.cheeses.push(newItem)
     })
-
-    // return this.cheeses;
+    
+    console.log('there should only be 13:', this.cheeses.length)
     return this.cheeses
   }
 

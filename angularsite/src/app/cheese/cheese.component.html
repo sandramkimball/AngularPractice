@@ -1,11 +1,11 @@
 <div class='cheese-banner'>
-    <div>
+    <div class="text-box">
         <h1>Our Cheeses</h1>
         <p>Our cheeses are directly shipped from multiple expert craftsman across Italy, Turkey, Iran, France and Greece from local, sustainable farms by the hands of passionate families and individuals.</p>
     </div>
-    <div>
-        <img src="../../assets/sheep-farmer-dash-masoud.jpg" alt="sheep and farmer photo by dash masoud in Iran"/>
-        <p>photo courtesy Dash Masoud, Iran</p>
+    <div class="img-box">
+        <img src="../../assets/farmer-azin-javadzadeh.jpg" alt="sheep and farmer photo by dash masoud in Iran"/>
+        <p>photo courtesy Azin Javadzadeh, Iran</p>
     </div>
 </div>
 
@@ -24,8 +24,8 @@
     <button type="submit" (click)="onSearch()" class='search-btn'>Search</button>
 </div> 
 
-<ul>
-    <li *ngFor="let ch of searchResults">
+<div class="grid-container">
+    <div *ngFor="let ch of searchResults" class="grid-item">
         <img src='../../assets/cheeses.jpg'/>
         <div>
             <p class='name'>{{ch.name}}</p>
@@ -36,9 +36,9 @@
                 <button class="qty-btn" (click)="addQty(ch)">+</button>
                 <button class="qty-btn" (click)="subtractQty(ch)">-</button>
             </div>
-            <button class="add-to-cart-btn" (click)="onAdd(ch)">Add</button>
+            <button class="add-to-cart-btn" (click)="onAdd(ch)">+</button>
         </div>
                 
-    </li>
-</ul>
+    </div>
+</div>
 
